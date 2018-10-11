@@ -6,7 +6,7 @@
 	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<nav th:replace="fragments/fragment :: navbar"></nav><br>
+<nav th:replace="fragments/fragment :: navbar('Update Pilot')"></nav>
 	<h2>Hello!</h2><br>
 <h3>Pilot Update</h3>
 <form th:action="@{'/pilot/update/' + ${pilot.licenseNumber}}" th:object="${pilot}" method="POST">
