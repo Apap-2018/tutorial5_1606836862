@@ -40,15 +40,14 @@ public class PilotController {
 		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
 
 		model.addAttribute("pilot", pilot);
-		//model.addAttribute("flights", pilot.getPilotFlight());
+		model.addAttribute("flights", pilot.getPilotFlight());
 		return "view-pilot";
 	}
 	
 	@RequestMapping(value = "/pilot/delete/{licenseNumber}", method = RequestMethod.GET)
-	private String delete(@PathVariable(value = "licenseNumber") String licenseNumber, Model model) {
+	private String deletePilot(@PathVariable(value = "licenseNumber") String licenseNumber, Model model) {
 		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
-		
-		pilotService.deletePilot(pilot);;
+		pilotService.deletePilot(pilot);
 		return "delete";
 	}
 	
